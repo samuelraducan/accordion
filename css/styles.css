@@ -82,11 +82,6 @@ a:active {
   border-bottom-left-radius: 1.5em;
 }
 
-/**
- * NOTE: START EDITING HERE
- * ==================
- */
-
 .accordion__header button {
   display: flex;
   justify-content: space-between;
@@ -130,7 +125,8 @@ a:active {
 .accordion__content {
   height: 0;
   overflow: hidden;
-  transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out, visibility 0s 0.3s;
+  visibility: hidden;
 }
 
 .accordion__inner {
@@ -147,5 +143,6 @@ a:active {
 }
 
 .accordion.is-open .accordion__content {
-  /* height: 200px; */
+  visibility: visible;
+  transition: height 0.3s ease-out, visibility 0s 0s;
 }
