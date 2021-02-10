@@ -19,9 +19,13 @@ const isAccordionOpen = accordion => {
  */
 const openAccordion = accordion => {
   const accordionContent = accordion.querySelector('.accordion__content');
+  const accordionHeaderButton = accordion.querySelector('button');
 
   accordionContent.style.height = `${getContentHeight(accordion)}px`;
   accordion.classList.add('is-open');
+
+  // Screen Reader Accessibility
+  accordionHeaderButton.setAttribute('aria-expanded', 'true');
 };
 
 /**
@@ -34,6 +38,9 @@ const closeAccordion = accordion => {
 
   accordion.classList.remove('is-open');
   accordionContent.style.height = 0;
+
+  // Screen Reader Accessibility
+  accordionHeaderButton.setAttribute('aria-expanded', false);
   accordionHeaderButton.focus();
 };
 
